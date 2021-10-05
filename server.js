@@ -55,7 +55,7 @@ client.on("ready", () => {
   console.log(client.guilds.map(c => `${c.name} : ${c.me.hasPermission(8)}`));
   client.user.setStatus("online");
 
-  client.user.setActivity(`${prefix}help`, { type: "WATCHING" });
+  client.user.setActivity(`/help - run.gg`, { type: "PLAYING" });
 });
 
 client.on("message", message => {
