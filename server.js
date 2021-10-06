@@ -41,7 +41,7 @@ const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
 const yt_api_key = "AIzaSyBcG-R2X0J1Pqku1nZE1TN64GglU-Oj29M"; ///تعديل اساسي سوي اي بي اي جديد
 const pretty = require("pretty-ms");
-client.login(process.env.TOKEN);
+client.login(process.env.Token);
 const queue = new Map();
 var table = require("table").table;
 const Discord = require("discord.js");
@@ -227,7 +227,7 @@ client.on("message", message => {
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("**Bot Owner** :  ", `» <@359541019836022784>`, true) // تعديل اساسي غير الايدي لايدي حسابك
+      .addField("**Bot Owner** :  ", `» <@749236911905832992>`, true) // تعديل اساسي غير الايدي لايدي حسابك
       .setImage("")
       .setFooter(message.author.username, message.client.avatarURL);
     message.channel.send(bot);
@@ -259,10 +259,10 @@ client.on("message", message => {
       message.mentions.members.first().highestRole.position >=
       message.member.highestRole.position
     )
-      return message.channel.send("ما تقدر تبند شخص رتبته اعلى منك!");
+      return message.channel.send("You can't find someone whose rank is higher than you!");
     if (!message.guild.member(user).bannable)
       return message.reply(
-        "**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**"
+        "**The rank of the bot must be higher than the rank of the person to be banished**"
       );
 
     message.guild.member(user).ban(7, user);
@@ -309,21 +309,21 @@ client.on("message", async message => {
       var inviteInfo = new Discord.RichEmbed()
         .setTitle(`:incoming_envelope: **[INVITE INFO]** ${Username}`)
         .addField(
-          "**عدد الدعوات للسيرفر**",
+          "**The number of calls to the server**",
           `[ شخص **${Number(inviteCount)}** ]   `
         )
         .addField(
-          "**تاريخ انضمامك لسيرفرنا **",
+          "**The date you joined our server**",
           ` [ منذ  **${daysJoined.toFixed(0)}** يوم ]   `
         )
         .addField(
-          "**رابط الدعوة الذي دخلت منه**  ",
+          "**Close the invitation from which you entered**  ",
           `[ **${
             inviteCode &&
             inviteCode.code &&
             inviteCode.code.includes("discord.gg")
               ? inviteCode.code
-              : `https://discord.gg/${inviteCode.code || "vHmbKTE"}`
+              : `https://discord.gg/${inviteCode.code || "erFKgN5stv"}`
           }** ]   `
         )
         .setImage("")
@@ -359,17 +359,18 @@ client.on("message", message => {
       .split(" ")
       .slice(2)
       .join(" ");
-    if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-    if (!reason) return message.reply("**اكتب سبب الطرد**");
+    if (message.mentions.users.size < 1) return message.reply("**Tag someone**");
+    if (!reason) return message.reply("**Write the reason for the expulsion**");
     if (!message.guild.member(user).kickable)
       return message.reply(
-        "**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**"
+        "**Can I kick someone higher than my rank, please give the bot a higher rank
+**"
       );
     if (
       message.mentions.members.first().highestRole.position >=
       message.member.highestRole.position
     )
-      return message.channel.send("ما تقدر تطرد شخص رتبته اعلى منك!");
+      return message.channel.send("You can't fire someone whose rank is higher than you!");
 
     message.guild.member(user).kick();
 
@@ -498,7 +499,7 @@ client.on("message", message => {
 
     if (message.guild.member(user).removeRole(muteRole.id)) {
       return message
-        .reply("**:white_check_mark: .. تم فك الميوت عن الشخص **")
+        .reply("**:white_check_mark: the death has been removed from the person **")
         .catch(console.error);
     } else {
       message.guild
@@ -506,7 +507,7 @@ client.on("message", message => {
         .removeRole(muteRole)
         .then(() => {
           return message
-            .reply("**:white_check_mark: .. تم فك الميوت عن الشخص **")
+            .reply("**:white_check_mark: ..the death has been removed from the person  **")
             .catch(console.error);
         });
     }
